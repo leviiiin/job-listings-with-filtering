@@ -1,0 +1,12 @@
+.header {
+  width: 100%;
+  height: 150px;
+  background: var(--primary);
+  background-image: url("/icons/bg-header-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media (max-width: 375px) {
+    background-image: url("/icons/bg-header-mobile.svg");
+  }
+}
