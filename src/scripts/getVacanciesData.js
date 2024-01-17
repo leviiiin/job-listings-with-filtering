@@ -7,7 +7,7 @@ const vacanciesFilterBtns = document.getElementById('vacanciesFilterBtns');
 
 export async function getVacanciesData() {
     try {
-        const response = await fetch("/data.json");
+        const response = await fetch("./data.json");
         const vacanciesData = await response.json();
 
         displayVacancies(vacanciesData);
