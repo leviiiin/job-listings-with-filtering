@@ -1,9 +1,9 @@
 // import { Notyf } from 'notyf';
 // import { wait } from "./utils";
-import { getVacanciesData } from './getVacanciesData'
+import {initVacanciesBoard} from "./modules/vacanciesBoard";
+
 const App = function () {
-  getVacanciesData();
-  
+  initVacanciesBoard();
 }
 
 App();

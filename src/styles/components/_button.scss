@@ -10,17 +10,17 @@ button,
 }
 
 .button {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 7px 9px;
 
   &--primary {
-    background: hsl(180, 33%, 91%);
     color: var(--primary);
-    font-size: 16px;
-    font-weight: 700;
-    padding: 7px 9px;
+    background: hsl(180, 33%, 91%);
 
     &:hover {
-      background: var(--primary);
       color: var(--white);
+      background: var(--primary);
     }
   }
 
@@ -41,7 +41,7 @@ button,
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
       transition: 0.2s !important;
-    } 
+    }
 
     &:hover {
       background: hsl(180, 33%, 91%);
@@ -51,6 +51,6 @@ button,
         background: var(--dark-cyan);
       }
     }
-    
+
   }
 }
