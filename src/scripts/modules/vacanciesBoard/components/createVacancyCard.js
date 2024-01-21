@@ -1,6 +1,8 @@
 import {convertTime} from '../../../utils/convertTime';
 
-export function createVacancyCard(vacancy) {
+export function createVacancyCard(vacancy, selectFilter) {
+  // викликати метод selectFilter при клікі на кнопку
+
   return `
         <div class="vacancy__card ${vacancy.featured ? 'vacancy__card--featured' : ''}">
             <img src="${vacancy.logo}" class="vacancy__img" alt="">
