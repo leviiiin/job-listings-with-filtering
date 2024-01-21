@@ -1,0 +1,16 @@
+.vacancies-error {
+  padding: 200px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+
+  color: crimson;
+  text-align: center;
+  font-size: 26px;
+
+  & > h1 {
+    font-size: 70px;
+    font-weight: 700;
+  }
+}

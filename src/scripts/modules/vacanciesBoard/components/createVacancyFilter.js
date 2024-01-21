@@ -1,9 +1,9 @@
-import {displayVacancies, handleButtonClick} from './getVacanciesData'
+import { displayVacancies, handleButtonClick } from '../../../api/vacancies/getVacancies'
 
 const vacanciesFilterBtns = document.getElementById('vacanciesFilterBtns');
 const vacanciesFilter = document.getElementById('vacanciesFilter');
 const clearFilter = document.getElementById('clearFilter');
-const vacanciesContainer = document.getElementById('vacanciesContainer');
+export const vacanciesContainer = document.getElementById('vacanciesContainer');
 
 export function filterVacancies(vacancies) {
   const selectedCategories = Array.from(vacanciesFilterBtns.children)
@@ -17,7 +17,7 @@ export function filterVacancies(vacancies) {
 
   const filteredVacancies = selectedCategories.reduce((accum, category) => {
     accum = accum.filter(vacancy => {
-      const {role, level, languages, tools} = vacancy;
+      const { role, level, languages, tools } = vacancy;
       const vacancyFilteringProperty = [role, level, ...languages, ...tools].map((el) => el.toLowerCase());
       return vacancyFilteringProperty.includes(category);
     });
@@ -42,7 +42,7 @@ export function addFilterButton(category, data, selectedCategories) {
 
   if (!isCategorySelected) {
     const newBtn = document.createElement('button');
-    newBtn.className = 'button--primary button--clear';
+    newBtn.className = 'button button--primary button--clear';
     newBtn.style.textTransform = 'capitalize';
     newBtn.innerText = category;
     newBtn.setAttribute('data-category', category);

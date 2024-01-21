@@ -1,4 +1,4 @@
-import {convertTime} from '../../utils/convertTime';
+import {convertTime} from '../../../utils/convertTime';
 
 export function createVacancyCard(vacancy) {
   return `

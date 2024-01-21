@@ -1,8 +1,8 @@
-import {filterVacancies, setupFilterEventListeners, addFilterButton} from './filterVacancies';
-import {createVacancyCard} from './createVacancyCard';
+import { filterVacancies, setupFilterEventListeners, addFilterButton } from '../../modules/vacanciesBoard/components/createVacancyFilter';
+import { createVacancyCard } from '../../modules/vacanciesBoard/components/createVacancyCard';
 
 const vacanciesContainer = document.getElementById('vacanciesContainer');
-const vacanciesFilterBtns = document.getElementById('vacanciesFilterBtns');
+const vacanciesFilterBtns = document.getElementById('vacanciesFilterBtns'); 
 
 
 // MVC
@@ -28,10 +28,10 @@ const vacanciesFilterBtns = document.getElementById('vacanciesFilterBtns');
 // Оновлюємо стан нашого додатку => const filters = []; => filters.push(selectedCategory);
 // отримуємо данні (з вже вибраними фільтрами)
 // будуємо template фільтрів
-// будуємо template вакансій
+// будуємо template вакансійs
 
 
-export async function getVacanciesData() {
+export async function getVacancies() {
   try {
     if (!vacanciesContainer && !vacanciesFilterBtns) {
       return;
