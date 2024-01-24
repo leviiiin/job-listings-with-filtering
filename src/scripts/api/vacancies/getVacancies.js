@@ -12,5 +12,3 @@ export async function getVacancies(filters) {
     return accum;
   }, vacancies);
 }
-
-

@@ -1,9 +1,9 @@
-import {convertTime} from '../../../utils/convertTime';
+import { convertTime } from '../../../utils/convertTime';
 
-export function createVacancyCard(vacancy, selectFilter) {
-  // викликати метод selectFilter при клікі на кнопку
+export function createVacancyCard(vacancy) {
+    // викликати метод selectFilter при клікі на кнопку
 
-  return `
+    return `
         <div class="vacancy__card ${vacancy.featured ? 'vacancy__card--featured' : ''}">
             <img src="${vacancy.logo}" class="vacancy__img" alt="">
             <div class="vacancy__info">
@@ -24,10 +24,38 @@ export function createVacancyCard(vacancy, selectFilter) {
                 </div>
             </div>
             <div class="vacancy__buttons">
-                <button type="button" class="button button--primary vacancy__btn" data-category="${vacancy.role.toLowerCase()}">${vacancy.role}</button>
-                <button type="button" class="button button--primary vacancy__btn" data-category="${vacancy.level.toLowerCase()}">${vacancy.level}</button>
-                ${vacancy.languages.map(language => `<button type="button" class="button button--primary vacancy__btn" data-category="${language.toLowerCase()}">${language}</button>`).join('')}
-                ${vacancy.tools.map(tol => `<button type="button" class="button button--primary vacancy__btn" data-category="${tol.toLowerCase()}">${tol}</button>`).join('')}
+                <button 
+                    type="button" 
+                    class="button button--primary vacancy__btn"
+                    data-category="${vacancy.role.toLowerCase()}"
+                >
+                    ${vacancy.role}
+                </button>
+                <button 
+                    type="button" 
+                    class="button button--primary vacancy__btn" 
+                    data-category="${vacancy.level.toLowerCase()}"
+                >
+                    ${vacancy.level}
+                </button>
+                ${vacancy.languages.map(language => `
+                    <button 
+                        type="button" 
+                        class="button button--primary vacancy__btn" 
+                        data-category="${language.toLowerCase()}"
+                    >
+                        ${language}
+                    </button>
+                `).join('')}
+                ${vacancy.tools.map(tool => `
+                    <button 
+                        type="button" 
+                        class="button button--primary vacancy__btn" 
+                        data-category="${tool.toLowerCase()}"
+                    >
+                        ${tool}
+                    </button>
+                `).join('')}
             </div>
         </div>
     `;

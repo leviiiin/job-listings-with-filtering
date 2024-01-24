@@ -3,5 +3,7 @@ export function createVacancyFilter(filters, updateFilters) {
 
   // filterBtn = updateFilters([...filters, але без "фільтру, який вибрав користувач"])
   // resetBtn = updateFilters([]);
+  console.log(filters);
+  console.log(updateFilters);
 }
 

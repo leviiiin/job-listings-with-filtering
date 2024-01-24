@@ -1,13 +1,13 @@
-import {getVacancies} from "../../api/vacancies/getVacancies";
-import {createVacancyFilter} from "./components/createVacancyFilter";
-import {createVacancyCard} from "./components/createVacancyCard";
+import { getVacancies } from "../../api/vacancies/getVacancies";
+import { createVacancyFilter } from "./components/createVacancyFilter";
+import { createVacancyCard } from "./components/createVacancyCard";
 
 function createVacancies(vacancies, selectFilter) {
   if (Array.isArray(vacancies) && vacancies.length > 0) {
     // Fragment
     return vacancies.map(vacancy => createVacancyCard(vacancy, selectFilter)).join('');
   } else {
-    //.div 'List of vacancies empty'
+    return '<div class="listEmpty-mess">List of vacancies empty</div>';
   }
 }
 
@@ -30,7 +30,8 @@ export const initVacanciesBoard = async () => {
       vacanciesFilterContainer.innerHTML = filtersHTML;
       vacanciesContainer.innerHTML = vacanciesHTML;
     } catch (e) {
-      vacanciesContainer.innerHTML = `<div>Sorry! Something went wrong!</div>`;
+      console.error('Error loading vacancies:', e);
+      vacanciesContainer.innerHTML = `<div class="error-mess">Sorry! Something went wrong!</div>`;
     }
   }
   const updateFilters = async (newFilters) => {
