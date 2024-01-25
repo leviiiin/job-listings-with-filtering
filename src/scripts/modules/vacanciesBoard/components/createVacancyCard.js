@@ -1,9 +1,6 @@
 import { convertTime } from '../../../utils/convertTime';
 
 export function createVacancyCard(vacancy, selectFilter) {
-    // зібрати в один масив всі категорії дял фільтрації
-    // пройтись по масиву і на основі цих категорій зробити кнопки
-
     const { role, level, languages, tools } = vacancy;
     const catogories = [role, level, ...languages, ...tools].map((el) => el);
 
@@ -46,12 +43,12 @@ export function createVacancyCard(vacancy, selectFilter) {
 
     btns.forEach(btn => {
         btn.addEventListener('click', (event) => {
-            event.preventDefault;
+            event.preventDefault();
             const target = event.target.closest('.vacancy__btn');
             const category = target.getAttribute('data-category');
             selectFilter(category);
         })
-    })
+    });
 
     return el;
 }

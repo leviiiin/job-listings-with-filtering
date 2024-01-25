@@ -18,7 +18,7 @@ function createVacancies(vacancies, selectFilter) {
 
 export const initVacanciesBoard = async () => {
   const vacanciesContainer = document.getElementById('vacanciesContainer');
-  const vacanciesFilterContainer = document.getElementById('vacanciesFilter');
+  const vacanciesFilterContainer = document.getElementById('vacanciesFilterContainer');
   if (!vacanciesContainer || !vacanciesFilterContainer) {
     return;
   }
@@ -32,7 +32,8 @@ export const initVacanciesBoard = async () => {
       const filtersHTML = createVacancyFilter(filters, updateFilters);
       const vacanciesHTML = createVacancies(vacancies, selectFilter);
 
-      vacanciesFilterContainer.innerHTML = filtersHTML;
+      vacanciesFilterContainer.replaceChildren();
+      vacanciesFilterContainer.appendChild(filtersHTML);
       vacanciesContainer.replaceChildren();
       vacanciesContainer.appendChild(vacanciesHTML);
     } catch (e) {
