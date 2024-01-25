@@ -105,3 +105,14 @@
     }
   }
 }
+
+.vacancies-list__message {
+    padding: 250px 0;
+    color: var(--primary);
+    font-size: 32px;
+    text-align: center;
+
+  &--error {
+    color: crimson;
+  }
+}

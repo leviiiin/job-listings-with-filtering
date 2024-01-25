@@ -1,9 +1,15 @@
-export function createVacancyFilter(filters, updateFilters) {
+export function createVacancyFilter() {
+  // filters, updateFilters
   // TODO: повертаєм html код фільтрів
 
-  // filterBtn = updateFilters([...filters, але без "фільтру, який вибрав користувач"])
+  // filterBtn = updateFilters([...filters])
   // resetBtn = updateFilters([]);
-  console.log(filters);
-  console.log(updateFilters);
+  
+  return `
+    <div class="vacancies-filter__btns" id="filterBtns">
+
+    </div>
+    <span class="vacancies-filter__reset" id="">Clear</span>
+  `;
 }
 

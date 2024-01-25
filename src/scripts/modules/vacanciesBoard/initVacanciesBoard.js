@@ -4,10 +4,15 @@ import { createVacancyCard } from "./components/createVacancyCard";
 
 function createVacancies(vacancies, selectFilter) {
   if (Array.isArray(vacancies) && vacancies.length > 0) {
-    // Fragment
-    return vacancies.map(vacancy => createVacancyCard(vacancy, selectFilter)).join('');
+
+    return vacancies.reduce((accum, vacancy) => {
+      accum.appendChild(createVacancyCard(vacancy, selectFilter));
+      
+
+      return accum;
+    }, document.createDocumentFragment());
   } else {
-    return '<div class="listEmpty-mess">List of vacancies empty</div>';
+    return '<div class="vacancies-list__message">List of vacancies empty</div>';
   }
 }
 
@@ -23,21 +28,27 @@ export const initVacanciesBoard = async () => {
   const createVacanciesBoard = async () => {
     try {
       const vacancies = await getVacancies(filters);
-
+      
       const filtersHTML = createVacancyFilter(filters, updateFilters);
       const vacanciesHTML = createVacancies(vacancies, selectFilter);
 
       vacanciesFilterContainer.innerHTML = filtersHTML;
-      vacanciesContainer.innerHTML = vacanciesHTML;
+      vacanciesContainer.replaceChildren();
+      vacanciesContainer.appendChild(vacanciesHTML);
     } catch (e) {
       console.error('Error loading vacancies:', e);
-      vacanciesContainer.innerHTML = `<div class="error-mess">Sorry! Something went wrong!</div>`;
+      vacanciesContainer.innerHTML = `
+      <div class="vacancies-list__message--error">
+        Sorry! Something went wrong!
+      </div>`;
     }
   }
+
   const updateFilters = async (newFilters) => {
     filters = newFilters;
     await createVacanciesBoard();
   }
+
   const selectFilter = async (filter) => {
     filters.push(filter);
     await createVacanciesBoard();
